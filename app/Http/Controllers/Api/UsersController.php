@@ -8,14 +8,14 @@ use JWTAuth;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use App\Transformers\UserTransformer;
 class UsersController extends Controller
 {
     use Helpers;
     public function index(){
 //        return User::all();
         $user = $this->auth->user();
-
-        return $user;
+        return $this->response()->item($user, new UserTransformer);
     }
 
     // 刷新 token

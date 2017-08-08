@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app['Dingo\Api\Transformer\Factory']->setAdapter(function ($app) {
+            return new \Dingo\Api\Transformer\Adapter\Fractal(new \League\Fractal\Manager, 'include', ',');
+        });
     }
 
     /**

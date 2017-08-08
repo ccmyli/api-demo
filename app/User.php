@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Replay;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
@@ -40,5 +41,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Replay::class);
     }
 }
