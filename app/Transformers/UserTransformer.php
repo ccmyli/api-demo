@@ -25,7 +25,7 @@ class UserTransformer extends BaseTransformer
             'is_banned' => $model->is_banned,
             'twitter_account' => $model->twitter_account,
             'company' => $model->company,
-            'city' => $model->city,
+            'city' => $model->cit,
             'email' => $model->email,
             'introduction' => $model->introduction,
             'github_name' => $model->github_name,
